@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>유령씨의 달빛 아지트</title>
+<style>
+:root{--night:#090d25;--deep:#111638;--purple:#b9a4ff;--blue:#9edcff;--white:#f4f1ff}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--white);font-family:"Pretendard","Noto Sans KR",sans-serif;background:radial-gradient(ellipse at 50% 0%,#25275b 0%,#111638 42%,#070a1c 100%);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(2px 2px at 12% 18%,#fff 50%,transparent 60%),radial-gradient(1px 1px at 76% 12%,#fff 50%,transparent 60%),radial-gradient(2px 2px at 88% 58%,#c9baff 50%,transparent 60%),radial-gradient(1px 1px at 33% 72%,#fff 50%,transparent 60%),radial-gradient(1px 1px at 60% 42%,#fff 50%,transparent 60%);background-size:290px 230px;opacity:.8;animation:twinkle 4s ease-in-out infinite alternate}
+@keyframes twinkle{from{opacity:.35}to{opacity:.95}}
+header{text-align:center;padding:65px 20px 35px;position:relative}
+.moon{position:absolute;right:14%;top:40px;font-size:54px;filter:drop-shadow(0 0 18px #c9baff)}
+.ghost{font-size:68px;display:inline-block;animation:float 3s ease-in-out infinite;filter:drop-shadow(0 0 18px #b9a4ff)}
+@keyframes float{50%{transform:translateY(-13px) rotate(4deg)}}
+h1{font-size:clamp(30px,6vw,48px);margin:14px 0 8px;letter-spacing:2px}
+.subtitle{color:#c5c5eb;margin:0}
+nav{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;padding:10px 20px 28px}
+.cross{width:54px;height:54px;border:1px solid #b9a4ff88;background:#22234b;color:#eee8ff;border-radius:15px;cursor:pointer;position:relative;box-shadow:0 0 18px #8f7bff22;transition:.2s}
+.cross:hover{transform:translateY(-4px);background:#39336b;box-shadow:0 0 22px #b9a4ff66}
+.cross:before,.cross:after{content:"";position:absolute;background:#d9ceff;border-radius:2px;left:50%;top:50%;transform:translate(-50%,-50%)}
+.cross:before{width:23px;height:5px}.cross:after{width:5px;height:23px}
+.cross span{position:absolute;top:60px;left:50%;transform:translateX(-50%);font-size:11px;white-space:nowrap;color:#d9d5f4}
+main{width:min(850px,calc(100% - 32px));margin:15px auto 60px}
+.panel{display:none;background:#151a3ddd;border:1px solid #a99bff55;border-radius:22px;padding:28px;box-shadow:0 12px 45px #0005;backdrop-filter:blur(8px);min-height:210px}
+.panel.active{display:block;animation:appear .3s ease}
+@keyframes appear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.panel h2{margin-top:0;color:#d5caff}
+.panel p{line-height:1.8;color:#e0def5}
+.lock-note{color:#b9cfff;font-size:14px}
+input,textarea{width:100%;margin:8px 0 12px;padding:12px;border-radius:10px;border:1px solid #8177bb;background:#0c112b;color:white;font:inherit}
+button.action{border:0;border-radius:10px;padding:11px 17px;background:linear-gradient(90deg,#8d7be8,#6b9edc);color:#fff;font-weight:700;cursor:pointer}
+button.action:hover{filter:brightness(1.12)}
+.item{padding:13px 15px;border-radius:12px;background:#ffffff0c;margin:10px 0}
+footer{text-align:center;color:#9898c4;font-size:12px;padding:0 20px 35px}
+.small{font-size:12px;color:#aaa8d2}
+</style>
+</head>
+<body>
+<header>
+  <div class="moon">☾</div>
+  <div class="ghost">👻</div>
+  <h1>유령씨의 달빛 아지트</h1>
+  <p class="subtitle">별빛이 머무는 작은 비밀 공간</p>
+</header>
+
+<nav aria-label="사이트 메뉴">
+  <button class="cross" onclick="showPanel('home')" aria-label="홈"><span>HOME</span></button>
+  <button class="cross" onclick="showPanel('about')" aria-label="소개"><span>ABOUT</span></button>
+  <button class="cross" onclick="showPanel('diary')" aria-label="일기장"><span>DIARY 🔒</span></button>
+  <button class="cross" onclick="showPanel('gallery')" aria-label="갤러리"><span>GALLERY 🔒</span></button>
+  <button class="cross" onclick="showPanel('guestbook')" aria-label="방명록"><span>GUESTBOOK 🔒</span></button>
+</nav>
+
+<main>
+  <section id="home" class="panel active">
+    <h2>🌙 달빛 아지트에 온 걸 환영해!</h2>
+    <p>안녕! 여기는 유령씨가 꾸민 작은 밤하늘이야.<br>위에 있는 십자가 모양 별을 눌러 여러 공간을 둘러봐.</p>
+    <div class="item">✦ 공개 공간은 누구나 볼 수 있어.</div>
+    <div class="item">✦ 일기장, 갤러리, 방명록은 액세스 코드가 필요해.</div>
+  </section>
+
+  <section id="about" class="panel">
+    <h2>☁ ABOUT 유령씨</h2>
+    <p>닉네임: 유령씨 👻</p>
+    <p>좋아하는 것: 밤하늘, 별, 달빛, 귀여운 것들</p>
+    <p>이곳은 유령씨의 취향과 이야기를 모아 두는 공간이야.</p>
+  </section>
+
+  <section id="diary" class="panel">
+    <h2>📖 비밀 일기장</h2>
+    <div id="diary-lock">
+      <p class="lock-note">🔒 이 공간은 액세스 코드로 잠겨 있어.</p>
+      <input id="diary-code" type="password" placeholder="액세스 코드 입력" autocomplete="off">
+      <button class="action" onclick="unlock('diary')">열기</button>
+      <p id="diary-error" class="small"></p>
+    </div>
+    <div id="diary-content" hidden>
+      <p>유령씨의 비밀 일기장에 들어왔어.</p>
+      <textarea id="diary-text" rows="5" placeholder="오늘의 이야기를 적어 봐."></textarea>
+      <button class="action" onclick="saveDiary()">이 브라우저에 저장</button>
+      <p class="small">서버 로그인 연결 전에는 개인적인 내용을 입력하지 마세요.</p>
+      <div id="saved-diary"></div>
+    </div>
+  </section>
+
+  <section id="gallery" class="panel">
+    <h2>🖼 비밀 갤러리</h2>
+    <div id="gallery-lock">
+      <p class="lock-note">🔒 갤러리를 보려면 액세스 코드가 필요해.</p>
+      <input id="gallery-code" type="password" placeholder="액세스 코드 입력" autocomplete="off">
+      <button class="action" onclick="unlock('gallery')">열기</button>
+      <p id="gallery-error" class="small"></p>
+    </div>
+    <div id="gallery-content" hidden>
+      <p>아직 전시된 그림이 없어. HTML 파일 안의 갤러리 영역에 사진을 추가하면 돼.</p>
+      <div class="item">🌌 별이 가득한 밤하늘</div>
+      <div class="item">🌙 달빛 아래의 작은 유령</div>
+    </div>
+  </section>
+
+  <section id="guestbook" class="panel">
+    <h2>✉ 비밀 방명록</h2>
+    <div id="guestbook-lock">
+      <p class="lock-note">🔒 방명록은 액세스 코드로 잠겨 있어.</p>
+      <input id="guestbook-code" type="password" placeholder="액세스 코드 입력" autocomplete="off">
+      <button class="action" onclick="unlock('guestbook')">열기</button>
+      <p id="guestbook-error" class="small"></p>
+    </div>
+    <div id="guestbook-content" hidden>
+      <p>방명록에 짧은 인사를 남겨 봐.</p>
+      <input id="guest-name" maxlength="20" placeholder="닉네임 (선택)">
+      <textarea id="guest-message" rows="3" maxlength="300" placeholder="메시지를 적어 줘."></textarea>
+      <button class="action" onclick="addGuest()">남기기</button>
+      <div id="guest-list"></div>
+      <p class="small">서버 로그인 연결 전에는 개인적인 내용을 입력하지 마세요.</p>
+    </div>
+  </section>
+</main>
+<footer>✦ 유령씨의 달빛 아지트 · 별빛 아래 조용히 ✦</footer>
+
+<script>
+// 데모용 코드: 배포 전 아래 값을 원하는 코드로 바꾸세요.
+// 주의: 이 방식은 브라우저 안에서만 잠금 화면을 보여 주므로 진짜 보안 기능은 아닙니다.
+// 공개용 버전: 서버 로그인 연결 전까지 비밀 공간은 잠겨 있습니다.
+
+function showPanel(id){
+  document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+function unlock(section){
+  const error=document.getElementById(section+"-error");
+  error.textContent="비밀 공간은 안전한 서버 로그인 기능을 연결한 뒤 열 수 있어요.";
+}
+function saveDiary(){
+  const text=document.getElementById("diary-text").value.trim();
+  if(!text)return;
+  const entries=JSON.parse(localStorage.getItem("ghostDiary")||"[]");
+  entries.unshift({text, date:new Date().toLocaleString("ko-KR")});
+  localStorage.setItem("ghostDiary",JSON.stringify(entries));
+  document.getElementById("diary-text").value="";
+  renderDiary();
+}
+function renderDiary(){
+  const entries=JSON.parse(localStorage.getItem("ghostDiary")||"[]");
+  document.getElementById("saved-diary").innerHTML=entries.map(e=>`<div class="item"><span class="small">${escapeHTML(e.date)}</span><p>${escapeHTML(e.text).replace(/\n/g,"<br>")}</p></div>`).join("");
+}
+function addGuest(){
+  const name=document.getElementById("guest-name").value.trim()||"익명의 방문자";
+  const message=document.getElementById("guest-message").value.trim();
+  if(!message)return;
+  const entries=JSON.parse(localStorage.getItem("ghostGuests")||"[]");
+  entries.unshift({name,message,date:new Date().toLocaleString("ko-KR")});
+  localStorage.setItem("ghostGuests",JSON.stringify(entries));
+  document.getElementById("guest-message").value="";
+  renderGuests();
+}
+function renderGuests(){
+  const entries=JSON.parse(localStorage.getItem("ghostGuests")||"[]");
+  document.getElementById("guest-list").innerHTML=entries.map(e=>`<div class="item"><strong>${escapeHTML(e.name)}</strong> <span class="small">${escapeHTML(e.date)}</span><p>${escapeHTML(e.message).replace(/\n/g,"<br>")}</p></div>`).join("");
+}
+function escapeHTML(value){
+  return value.replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+}
+</script>
+</body>
+</html>
